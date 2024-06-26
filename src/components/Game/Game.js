@@ -14,12 +14,14 @@ console.log(answer);
 
 function Game() {
   const [words, setWords] = useState([]);
+  console.log(words.filter((word) => word === answer));
+
   return (
     <>
       <div className="game-wrapper">
         <Body words={words} answer={answer} />
       </div>
-      <Form words={words} setWords={setWords} />
+      <Form words={words} setWords={setWords} answer={answer} />
     </>
   );
 }

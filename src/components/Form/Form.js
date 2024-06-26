@@ -1,7 +1,7 @@
 import React from "react";
 
-function Form({ words, setWords }) {
-  const [guesses, setGuesses] = React.useState(""); 
+function Form({ words, setWords, answer }) {
+  const [guesses, setGuesses] = React.useState("");
   const newGuess = {
     value: guesses,
     id: new Date().getTime().toString(),
@@ -34,6 +34,11 @@ function Form({ words, setWords }) {
           value={guesses}
           id="guess-input"
           onChange={handleEvent}
+          disabled={
+            words.length === 6 ||
+            !!words.filter((word) => word.value === answer).length
+          }
+          required={true}
         />
       </form>
     </>
