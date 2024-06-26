@@ -1,26 +1,21 @@
 import React from "react";
-{
-  /*<div class="guess-results">
-  <p class="guess">FIRST</p>
-  <p class="guess">GUESS</p>
-</div>
-Acceptance Criteria:
+import Guess from "../Guess/Guess";
+import { NUM_OF_GUESSES_ALLOWED as Num } from "../../constants";
+import { range } from "../../utils";
 
-A new component should be created, to render previous guesses.
-When the user submits their guess, that value should be rendered within this new component.
-There should be no key warnings in the console! */
-}
-
-function Body({ words }) {
+function Body({ words, answer }) {
+  const { ...value } = words;
+  console.log(value, words);
+  console.table(words.id);
   return (
     <div className="guess-results">
-      {words.map(({ value, id }) => {
-        return (
-          <p className="guess" key={id}>
-            {value}
-          </p>
-        );
-      })}{" "}
+        {range(Num).map((num) => {
+          return (
+            <p key={num} className="guess">
+            <Guess value={words[num]?.value} answer={answer}/>
+          </p> 
+        )
+        })}{" "}
     </div>
   );
 }

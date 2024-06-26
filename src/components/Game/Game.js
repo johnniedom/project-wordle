@@ -4,6 +4,7 @@ import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import Form from "../Form";
 import Body from "../Body/Body";
+import Guess from "../Guess/Guess";
 // Pick a random word on every page load.
 const answer = sample(WORDS);
 
@@ -12,11 +13,11 @@ console.info({ answer });
 console.log(answer);
 
 function Game() {
-  const [words, setWords] = useState([]); // Use useState instead of React.useState
+  const [words, setWords] = useState([]);
   return (
     <>
       <div className="game-wrapper">
-        <Body words={words} />
+        <Body words={words} answer={answer} />
       </div>
       <Form words={words} setWords={setWords} />
     </>

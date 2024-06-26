@@ -19,9 +19,9 @@ function Form({ words, setWords }) {
       alert("input should have a minimum and maximum length of 5");
       return null;
     }
-    const nextGusses = [...words, newGuess];
-    console.table(nextGusses);
-    setWords(nextGusses);
+    const nextGuesses = [...words, newGuess];
+    console.table(nextGuesses);
+    setWords(nextGuesses);
   }
 
   return (
